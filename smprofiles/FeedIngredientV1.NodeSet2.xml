@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UANodeSet xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd"
+           xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <NamespaceUris>
+    <Uri>https://www.github.com/eukodyne/cesmii/smprofiles/FeedIngredientV1</Uri>
+  </NamespaceUris>
+
+  <Models>
+    <Model ModelUri="https://www.github.com/eukodyne/cesmii/smprofiles/FeedIngredientV1" Version="1.0.0" PublicationDate="2026-01-14T00:00:00Z">
+      <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.05.03" PublicationDate="2023-12-15T00:00:00Z"/>
+    </Model>
+  </Models>
+
+  <Aliases>
+    <Alias Alias="Boolean">i=1</Alias>
+    <Alias Alias="Int16">i=4</Alias>
+    <Alias Alias="Int32">i=6</Alias>
+    <Alias Alias="Int64">i=8</Alias>
+    <Alias Alias="Double">i=11</Alias>
+    <Alias Alias="String">i=12</Alias>
+    <Alias Alias="DateTime">i=13</Alias>
+    <Alias Alias="HasComponent">i=47</Alias>
+    <Alias Alias="HasProperty">i=46</Alias>
+    <Alias Alias="HasSubtype">i=45</Alias>
+    <Alias Alias="HasTypeDefinition">i=40</Alias>
+    <Alias Alias="HasModellingRule">i=37</Alias>
+    <Alias Alias="BaseObjectType">i=58</Alias>
+    <Alias Alias="PropertyType">i=68</Alias>
+    <Alias Alias="ModellingRule_Mandatory">i=78</Alias>
+  </Aliases>
+
+  <!-- FeedIngredientType ObjectType Definition -->
+  <UAObjectType NodeId="ns=1;i=1001" BrowseName="1:FeedIngredientType">
+    <DisplayName>FeedIngredientType</DisplayName>
+    <Description>CESMII Smart Manufacturing Profile for Feed Ingredients used in manufacturing work orders. Defines the structure for ingredient materials including product identification, quantities, and weight measurements.</Description>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">BaseObjectType</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6001</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6002</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6003</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6004</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6005</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6006</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6007</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6008</Reference>
+    </References>
+  </UAObjectType>
+
+  <!-- ProductID Property -->
+  <UAVariable NodeId="ns=1;i=6001" BrowseName="1:ProductID" DataType="String" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>ProductID</DisplayName>
+    <Description>Unique identifier for the feed ingredient product</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- ProductNumber Property -->
+  <UAVariable NodeId="ns=1;i=6002" BrowseName="1:ProductNumber" DataType="Int64" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>ProductNumber</DisplayName>
+    <Description>Numeric product number for the feed ingredient</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- ProductName Property -->
+  <UAVariable NodeId="ns=1;i=6003" BrowseName="1:ProductName" DataType="String" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>ProductName</DisplayName>
+    <Description>Human-readable name of the feed ingredient product</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- LotNumber Property -->
+  <UAVariable NodeId="ns=1;i=6004" BrowseName="1:LotNumber" DataType="String" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>LotNumber</DisplayName>
+    <Description>Lot number for traceability of the feed ingredient batch</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- UnitOfMeasure Property -->
+  <UAVariable NodeId="ns=1;i=6005" BrowseName="1:UnitOfMeasure" DataType="String" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>UnitOfMeasure</DisplayName>
+    <Description>Unit of measure for the quantity (e.g., CS for cases)</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- Quantity Property -->
+  <UAVariable NodeId="ns=1;i=6006" BrowseName="1:Quantity" DataType="Double" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>Quantity</DisplayName>
+    <Description>Quantity of the feed ingredient in the specified unit of measure</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- WeightUnitOfMeasure Property -->
+  <UAVariable NodeId="ns=1;i=6007" BrowseName="1:WeightUnitOfMeasure" DataType="String" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>WeightUnitOfMeasure</DisplayName>
+    <Description>Unit of measure for weight (e.g., lb for pounds)</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- Weight Property -->
+  <UAVariable NodeId="ns=1;i=6008" BrowseName="1:Weight" DataType="Double" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>Weight</DisplayName>
+    <Description>Weight of the feed ingredient in the specified weight unit</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+</UANodeSet>

@@ -1,0 +1,248 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "cesmii": "https://profiles.cesmii.org/",
+    "opc": "http://opcfoundation.org/UA/",
+    "WorkOrderV1": "https://www.github.com/eukodyne/cesmii/smprofiles/WorkOrderV1#",
+    "FeedIngredientV1": "https://www.github.com/eukodyne/cesmii/smprofiles/FeedIngredientV1#",
+    "WorkOrderID": {
+      "@id": "WorkOrderV1:WorkOrderID",
+      "@type": "opc:String"
+    },
+    "WorkOrderNumber": {
+      "@id": "WorkOrderV1:WorkOrderNumber",
+      "@type": "opc:Int32"
+    },
+    "TimeZone": {
+      "@id": "WorkOrderV1:TimeZone",
+      "@type": "opc:TimeZoneDataType"
+    },
+    "StartTimeLocal": {
+      "@id": "WorkOrderV1:StartTimeLocal",
+      "@type": "opc:DateTime"
+    },
+    "StartTimeUTC": {
+      "@id": "WorkOrderV1:StartTimeUTC",
+      "@type": "opc:UtcTime"
+    },
+    "EndTimeLocal": {
+      "@id": "WorkOrderV1:EndTimeLocal",
+      "@type": "opc:DateTime"
+    },
+    "EndTimeUTC": {
+      "@id": "WorkOrderV1:EndTimeUTC",
+      "@type": "opc:UtcTime"
+    },
+    "ProductID": {
+      "@id": "WorkOrderV1:ProductID",
+      "@type": "opc:String"
+    },
+    "ProductNumber": {
+      "@id": "WorkOrderV1:ProductNumber",
+      "@type": "opc:Int64"
+    },
+    "ProductName": {
+      "@id": "WorkOrderV1:ProductName",
+      "@type": "opc:String"
+    },
+    "LotNumber": {
+      "@id": "WorkOrderV1:LotNumber",
+      "@type": "opc:String"
+    },
+    "UnitOfMeasure": {
+      "@id": "WorkOrderV1:UnitOfMeasure",
+      "@type": "opc:String"
+    },
+    "Quantity": {
+      "@id": "WorkOrderV1:Quantity",
+      "@type": "opc:Double"
+    },
+    "WeightUnitOfMeasure": {
+      "@id": "WorkOrderV1:WeightUnitOfMeasure",
+      "@type": "opc:String"
+    },
+    "Weight": {
+      "@id": "WorkOrderV1:Weight",
+      "@type": "opc:Double"
+    },
+    "FeedIngredients": {
+      "@id": "WorkOrderV1:FeedIngredients",
+      "@type": "@id",
+      "@container": "@list"
+    }
+  },
+  "@id": "https://www.github.com/eukodyne/cesmii/smprofiles/WorkOrderV1",
+  "@type": "cesmii:SMProfile",
+  "cesmii:profileName": "WorkOrderV1",
+  "cesmii:profileVersion": "1.0.0",
+  "cesmii:namespace": "https://www.github.com/eukodyne/cesmii/smprofiles/",
+  "cesmii:description": "CESMII Smart Manufacturing Profile for Work Orders. Defines the structure for manufacturing work orders including scheduling, product information, quantities, and associated feed ingredients.",
+  "cesmii:baseType": "opc:BaseObjectType",
+  "cesmii:references": [
+    {
+      "@id": "https://www.github.com/eukodyne/cesmii/smprofiles/FeedIngredientV1",
+      "cesmii:referenceType": "cesmii:HasComponent"
+    }
+  ],
+  "cesmii:attributes": [
+    {
+      "@id": "WorkOrderV1:WorkOrderID",
+      "cesmii:browseName": "WorkOrderID",
+      "cesmii:dataType": {
+        "@id": "opc:String",
+        "opc:nodeId": "i=12"
+      },
+      "cesmii:description": "Unique identifier (GUID) for the work order"
+    },
+    {
+      "@id": "WorkOrderV1:WorkOrderNumber",
+      "cesmii:browseName": "WorkOrderNumber",
+      "cesmii:dataType": {
+        "@id": "opc:Int32",
+        "opc:nodeId": "i=6"
+      },
+      "cesmii:description": "Sequential numeric work order number"
+    },
+    {
+      "@id": "WorkOrderV1:TimeZone",
+      "cesmii:browseName": "TimeZone",
+      "cesmii:dataType": {
+        "@id": "opc:TimeZoneDataType",
+        "opc:nodeId": "i=8912",
+        "opc:structure": {
+          "offset": {
+            "@type": "opc:Int16",
+            "opc:nodeId": "i=4",
+            "cesmii:description": "Time difference from UTC in minutes"
+          },
+          "daylightSavingInOffset": {
+            "@type": "opc:Boolean",
+            "opc:nodeId": "i=1",
+            "cesmii:description": "If TRUE, DST is in effect and offset includes DST correction"
+          }
+        }
+      },
+      "cesmii:dataTypeReference": "https://profiledesigner.cesmii.net/type/125298",
+      "cesmii:description": "Time zone information for the work order scheduling"
+    },
+    {
+      "@id": "WorkOrderV1:StartTimeLocal",
+      "cesmii:browseName": "StartTimeLocal",
+      "cesmii:dataType": {
+        "@id": "opc:DateTime",
+        "opc:nodeId": "i=13"
+      },
+      "cesmii:description": "Work order start time in local time zone"
+    },
+    {
+      "@id": "WorkOrderV1:StartTimeUTC",
+      "cesmii:browseName": "StartTimeUTC",
+      "cesmii:dataType": {
+        "@id": "opc:UtcTime",
+        "opc:nodeId": "i=294"
+      },
+      "cesmii:description": "Work order start time in UTC"
+    },
+    {
+      "@id": "WorkOrderV1:EndTimeLocal",
+      "cesmii:browseName": "EndTimeLocal",
+      "cesmii:dataType": {
+        "@id": "opc:DateTime",
+        "opc:nodeId": "i=13"
+      },
+      "cesmii:description": "Work order end time in local time zone"
+    },
+    {
+      "@id": "WorkOrderV1:EndTimeUTC",
+      "cesmii:browseName": "EndTimeUTC",
+      "cesmii:dataType": {
+        "@id": "opc:UtcTime",
+        "opc:nodeId": "i=294"
+      },
+      "cesmii:description": "Work order end time in UTC"
+    },
+    {
+      "@id": "WorkOrderV1:ProductID",
+      "cesmii:browseName": "ProductID",
+      "cesmii:dataType": {
+        "@id": "opc:String",
+        "opc:nodeId": "i=12"
+      },
+      "cesmii:description": "Unique identifier for the product being manufactured"
+    },
+    {
+      "@id": "WorkOrderV1:ProductNumber",
+      "cesmii:browseName": "ProductNumber",
+      "cesmii:dataType": {
+        "@id": "opc:Int64",
+        "opc:nodeId": "i=8"
+      },
+      "cesmii:description": "Numeric product number"
+    },
+    {
+      "@id": "WorkOrderV1:ProductName",
+      "cesmii:browseName": "ProductName",
+      "cesmii:dataType": {
+        "@id": "opc:String",
+        "opc:nodeId": "i=12"
+      },
+      "cesmii:description": "Human-readable name of the product"
+    },
+    {
+      "@id": "WorkOrderV1:LotNumber",
+      "cesmii:browseName": "LotNumber",
+      "cesmii:dataType": {
+        "@id": "opc:String",
+        "opc:nodeId": "i=12"
+      },
+      "cesmii:description": "Lot number for traceability"
+    },
+    {
+      "@id": "WorkOrderV1:UnitOfMeasure",
+      "cesmii:browseName": "UnitOfMeasure",
+      "cesmii:dataType": {
+        "@id": "opc:String",
+        "opc:nodeId": "i=12"
+      },
+      "cesmii:description": "Unit of measure for the quantity"
+    },
+    {
+      "@id": "WorkOrderV1:Quantity",
+      "cesmii:browseName": "Quantity",
+      "cesmii:dataType": {
+        "@id": "opc:Double",
+        "opc:nodeId": "i=11"
+      },
+      "cesmii:description": "Quantity of product in the work order"
+    },
+    {
+      "@id": "WorkOrderV1:WeightUnitOfMeasure",
+      "cesmii:browseName": "WeightUnitOfMeasure",
+      "cesmii:dataType": {
+        "@id": "opc:String",
+        "opc:nodeId": "i=12"
+      },
+      "cesmii:description": "Unit of measure for weight"
+    },
+    {
+      "@id": "WorkOrderV1:Weight",
+      "cesmii:browseName": "Weight",
+      "cesmii:dataType": {
+        "@id": "opc:Double",
+        "opc:nodeId": "i=11"
+      },
+      "cesmii:description": "Total weight of the product in the work order"
+    },
+    {
+      "@id": "WorkOrderV1:FeedIngredients",
+      "cesmii:browseName": "FeedIngredients",
+      "cesmii:dataType": {
+        "@id": "FeedIngredientV1:FeedIngredientV1",
+        "cesmii:profileReference": "https://www.github.com/eukodyne/cesmii/smprofiles/FeedIngredientV1.jsonld"
+      },
+      "cesmii:isArray": true,
+      "cesmii:arrayBounds": "unbounded",
+      "cesmii:description": "List of feed ingredients required for the work order"
+    }
+  ]
+}

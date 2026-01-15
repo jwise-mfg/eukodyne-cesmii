@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UANodeSet xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd"
+           xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <NamespaceUris>
+    <Uri>https://www.github.com/eukodyne/cesmii/smprofiles/WorkOrderV1</Uri>
+    <Uri>https://www.github.com/eukodyne/cesmii/smprofiles/FeedIngredientV1</Uri>
+  </NamespaceUris>
+
+  <Models>
+    <Model ModelUri="https://www.github.com/eukodyne/cesmii/smprofiles/WorkOrderV1" Version="1.0.0" PublicationDate="2026-01-14T00:00:00Z">
+      <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.05.03" PublicationDate="2023-12-15T00:00:00Z"/>
+      <RequiredModel ModelUri="https://www.github.com/eukodyne/cesmii/smprofiles/FeedIngredientV1" Version="1.0.0" PublicationDate="2026-01-14T00:00:00Z"/>
+    </Model>
+  </Models>
+
+  <Aliases>
+    <Alias Alias="Boolean">i=1</Alias>
+    <Alias Alias="Int16">i=4</Alias>
+    <Alias Alias="Int32">i=6</Alias>
+    <Alias Alias="Int64">i=8</Alias>
+    <Alias Alias="Double">i=11</Alias>
+    <Alias Alias="String">i=12</Alias>
+    <Alias Alias="DateTime">i=13</Alias>
+    <Alias Alias="UtcTime">i=294</Alias>
+    <Alias Alias="TimeZoneDataType">i=8912</Alias>
+    <Alias Alias="HasComponent">i=47</Alias>
+    <Alias Alias="HasProperty">i=46</Alias>
+    <Alias Alias="HasSubtype">i=45</Alias>
+    <Alias Alias="HasTypeDefinition">i=40</Alias>
+    <Alias Alias="HasModellingRule">i=37</Alias>
+    <Alias Alias="BaseObjectType">i=58</Alias>
+    <Alias Alias="PropertyType">i=68</Alias>
+    <Alias Alias="BaseDataVariableType">i=63</Alias>
+    <Alias Alias="ModellingRule_Mandatory">i=78</Alias>
+    <Alias Alias="ModellingRule_Optional">i=80</Alias>
+    <Alias Alias="FeedIngredientType">ns=2;i=1001</Alias>
+  </Aliases>
+
+  <!-- WorkOrderType ObjectType Definition -->
+  <UAObjectType NodeId="ns=1;i=1001" BrowseName="1:WorkOrderType">
+    <DisplayName>WorkOrderType</DisplayName>
+    <Description>CESMII Smart Manufacturing Profile for Work Orders. Defines the structure for manufacturing work orders including scheduling, product information, quantities, and associated feed ingredients.</Description>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">BaseObjectType</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6001</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6002</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6003</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6004</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6005</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6006</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6007</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6008</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6009</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6010</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6011</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6012</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6013</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;i=6014</Reference>
+      <Reference ReferenceType="HasComponent">ns=1;i=5001</Reference>
+    </References>
+  </UAObjectType>
+
+  <!-- WorkOrderID Property -->
+  <UAVariable NodeId="ns=1;i=6001" BrowseName="1:WorkOrderID" DataType="String" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>WorkOrderID</DisplayName>
+    <Description>Unique identifier (GUID) for the work order</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- WorkOrderNumber Property -->
+  <UAVariable NodeId="ns=1;i=6002" BrowseName="1:WorkOrderNumber" DataType="Int32" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>WorkOrderNumber</DisplayName>
+    <Description>Sequential numeric work order number</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- TimeZone Property -->
+  <UAVariable NodeId="ns=1;i=6003" BrowseName="1:TimeZone" DataType="TimeZoneDataType" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>TimeZone</DisplayName>
+    <Description>Time zone information for the work order scheduling. Contains offset from UTC in minutes and DST indicator.</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- StartTimeLocal Property -->
+  <UAVariable NodeId="ns=1;i=6004" BrowseName="1:StartTimeLocal" DataType="DateTime" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>StartTimeLocal</DisplayName>
+    <Description>Work order start time in local time zone</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- StartTimeUTC Property -->
+  <UAVariable NodeId="ns=1;i=6005" BrowseName="1:StartTimeUTC" DataType="UtcTime" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>StartTimeUTC</DisplayName>
+    <Description>Work order start time in UTC</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- EndTimeLocal Property -->
+  <UAVariable NodeId="ns=1;i=6006" BrowseName="1:EndTimeLocal" DataType="DateTime" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>EndTimeLocal</DisplayName>
+    <Description>Work order end time in local time zone</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- EndTimeUTC Property -->
+  <UAVariable NodeId="ns=1;i=6007" BrowseName="1:EndTimeUTC" DataType="UtcTime" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>EndTimeUTC</DisplayName>
+    <Description>Work order end time in UTC</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- ProductID Property -->
+  <UAVariable NodeId="ns=1;i=6008" BrowseName="1:ProductID" DataType="String" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>ProductID</DisplayName>
+    <Description>Unique identifier for the product being manufactured</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- ProductNumber Property -->
+  <UAVariable NodeId="ns=1;i=6009" BrowseName="1:ProductNumber" DataType="Int64" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>ProductNumber</DisplayName>
+    <Description>Numeric product number</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- ProductName Property -->
+  <UAVariable NodeId="ns=1;i=6010" BrowseName="1:ProductName" DataType="String" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>ProductName</DisplayName>
+    <Description>Human-readable name of the product</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- LotNumber Property -->
+  <UAVariable NodeId="ns=1;i=6011" BrowseName="1:LotNumber" DataType="String" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>LotNumber</DisplayName>
+    <Description>Lot number for traceability</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- UnitOfMeasure Property -->
+  <UAVariable NodeId="ns=1;i=6012" BrowseName="1:UnitOfMeasure" DataType="String" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>UnitOfMeasure</DisplayName>
+    <Description>Unit of measure for the quantity</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- Quantity Property -->
+  <UAVariable NodeId="ns=1;i=6013" BrowseName="1:Quantity" DataType="Double" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>Quantity</DisplayName>
+    <Description>Quantity of product in the work order</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- WeightUnitOfMeasure Property -->
+  <UAVariable NodeId="ns=1;i=6014" BrowseName="1:WeightUnitOfMeasure" DataType="String" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>WeightUnitOfMeasure</DisplayName>
+    <Description>Unit of measure for weight</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- Weight Property -->
+  <UAVariable NodeId="ns=1;i=6015" BrowseName="1:Weight" DataType="Double" ParentNodeId="ns=1;i=1001" AccessLevel="3">
+    <DisplayName>Weight</DisplayName>
+    <Description>Total weight of the product in the work order</Description>
+    <References>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAVariable>
+
+  <!-- FeedIngredients Folder/Container Object -->
+  <UAObject NodeId="ns=1;i=5001" BrowseName="1:FeedIngredients" ParentNodeId="ns=1;i=1001">
+    <DisplayName>FeedIngredients</DisplayName>
+    <Description>Container for feed ingredient instances required for this work order. Each child object is of type FeedIngredientType.</Description>
+    <References>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1001</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+      <Reference ReferenceType="HasModellingRule">ModellingRule_Mandatory</Reference>
+    </References>
+  </UAObject>
+
+</UANodeSet>

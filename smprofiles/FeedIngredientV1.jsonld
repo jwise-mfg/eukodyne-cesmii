@@ -1,0 +1,121 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "cesmii": "https://profiles.cesmii.org/",
+    "opc": "http://opcfoundation.org/UA/",
+    "FeedIngredientV1": "https://www.github.com/eukodyne/cesmii/smprofiles/FeedIngredientV1#",
+    "ProductID": {
+      "@id": "FeedIngredientV1:ProductID",
+      "@type": "opc:String"
+    },
+    "ProductNumber": {
+      "@id": "FeedIngredientV1:ProductNumber",
+      "@type": "opc:Int64"
+    },
+    "ProductName": {
+      "@id": "FeedIngredientV1:ProductName",
+      "@type": "opc:String"
+    },
+    "LotNumber": {
+      "@id": "FeedIngredientV1:LotNumber",
+      "@type": "opc:String"
+    },
+    "UnitOfMeasure": {
+      "@id": "FeedIngredientV1:UnitOfMeasure",
+      "@type": "opc:String"
+    },
+    "Quantity": {
+      "@id": "FeedIngredientV1:Quantity",
+      "@type": "opc:Double"
+    },
+    "WeightUnitOfMeasure": {
+      "@id": "FeedIngredientV1:WeightUnitOfMeasure",
+      "@type": "opc:String"
+    },
+    "Weight": {
+      "@id": "FeedIngredientV1:Weight",
+      "@type": "opc:Double"
+    }
+  },
+  "@id": "https://www.github.com/eukodyne/cesmii/smprofiles/FeedIngredientV1",
+  "@type": "cesmii:SMProfile",
+  "cesmii:profileName": "FeedIngredientV1",
+  "cesmii:profileVersion": "1.0.0",
+  "cesmii:namespace": "https://www.github.com/eukodyne/cesmii/smprofiles/",
+  "cesmii:description": "CESMII Smart Manufacturing Profile for Feed Ingredients used in manufacturing work orders. Defines the structure for ingredient materials including product identification, quantities, and weight measurements.",
+  "cesmii:baseType": "opc:BaseObjectType",
+  "cesmii:attributes": [
+    {
+      "@id": "FeedIngredientV1:ProductID",
+      "cesmii:browseName": "ProductID",
+      "cesmii:dataType": {
+        "@id": "opc:String",
+        "opc:nodeId": "i=12"
+      },
+      "cesmii:description": "Unique identifier for the feed ingredient product"
+    },
+    {
+      "@id": "FeedIngredientV1:ProductNumber",
+      "cesmii:browseName": "ProductNumber",
+      "cesmii:dataType": {
+        "@id": "opc:Int64",
+        "opc:nodeId": "i=8"
+      },
+      "cesmii:description": "Numeric product number for the feed ingredient"
+    },
+    {
+      "@id": "FeedIngredientV1:ProductName",
+      "cesmii:browseName": "ProductName",
+      "cesmii:dataType": {
+        "@id": "opc:String",
+        "opc:nodeId": "i=12"
+      },
+      "cesmii:description": "Human-readable name of the feed ingredient product"
+    },
+    {
+      "@id": "FeedIngredientV1:LotNumber",
+      "cesmii:browseName": "LotNumber",
+      "cesmii:dataType": {
+        "@id": "opc:String",
+        "opc:nodeId": "i=12"
+      },
+      "cesmii:description": "Lot number for traceability of the feed ingredient batch"
+    },
+    {
+      "@id": "FeedIngredientV1:UnitOfMeasure",
+      "cesmii:browseName": "UnitOfMeasure",
+      "cesmii:dataType": {
+        "@id": "opc:String",
+        "opc:nodeId": "i=12"
+      },
+      "cesmii:description": "Unit of measure for the quantity (e.g., CS for cases)"
+    },
+    {
+      "@id": "FeedIngredientV1:Quantity",
+      "cesmii:browseName": "Quantity",
+      "cesmii:dataType": {
+        "@id": "opc:Double",
+        "opc:nodeId": "i=11"
+      },
+      "cesmii:description": "Quantity of the feed ingredient in the specified unit of measure"
+    },
+    {
+      "@id": "FeedIngredientV1:WeightUnitOfMeasure",
+      "cesmii:browseName": "WeightUnitOfMeasure",
+      "cesmii:dataType": {
+        "@id": "opc:String",
+        "opc:nodeId": "i=12"
+      },
+      "cesmii:description": "Unit of measure for weight (e.g., lb for pounds)"
+    },
+    {
+      "@id": "FeedIngredientV1:Weight",
+      "cesmii:browseName": "Weight",
+      "cesmii:dataType": {
+        "@id": "opc:Double",
+        "opc:nodeId": "i=11"
+      },
+      "cesmii:description": "Weight of the feed ingredient in the specified weight unit"
+    }
+  ]
+}
