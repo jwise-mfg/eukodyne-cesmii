@@ -34,10 +34,11 @@ cesmii/
 ├── requirements.txt            # Python dependencies
 ├── workorder_publisher.py      # Main application
 ├── smprofiles/
-│   ├── FeedIngredientV1.jsonld # Feed ingredient SM Profile
-│   └── WorkOrderV1.jsonld      # Work order SM Profile
-├── claude.md                   # Architecture documentation
-└── README.md                   # This file
+│   ├── FeedIngredientV1.jsonld     # Feed ingredient SM Profile
+│   ├── FeedIngredientV1.NodeSet2.xml # OPC UA NodeSet for feed ingredient
+│   ├── WorkOrderV1.jsonld          # Work order SM Profile
+│   └── WorkOrderV1.NodeSet2.xml    # OPC UA NodeSet for work order
+└── README.md                       # This file
 ```
 
 ## SM Profile Definitions
