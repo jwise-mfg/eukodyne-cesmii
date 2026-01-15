@@ -39,15 +39,20 @@
   },
   "@id": "https://www.github.com/eukodyne/cesmii/smprofiles/FeedIngredientV1",
   "@type": "cesmii:SMProfile",
-  "cesmii:profileName": "FeedIngredientV1",
-  "cesmii:profileVersion": "1.0.0",
+  "cesmii:profileName": "FeedIngredientDataType",
+  "cesmii:profileVersion": "1.1.0",
   "cesmii:namespace": "https://www.github.com/eukodyne/cesmii/smprofiles/",
   "cesmii:description": "CESMII Smart Manufacturing Profile for Feed Ingredients used in manufacturing work orders. Defines the structure for ingredient materials including product identification, quantities, and weight measurements.",
-  "cesmii:baseType": "opc:BaseObjectType",
-  "cesmii:attributes": [
+  "cesmii:baseType": {
+    "@id": "opc:Structure",
+    "opc:nodeId": "i=22"
+  },
+  "cesmii:nodeId": "ns=1;i=3001",
+  "cesmii:isDataType": true,
+  "cesmii:fields": [
     {
       "@id": "FeedIngredientV1:ProductID",
-      "cesmii:browseName": "ProductID",
+      "cesmii:fieldName": "ProductID",
       "cesmii:dataType": {
         "@id": "opc:String",
         "opc:nodeId": "i=12"
@@ -56,7 +61,7 @@
     },
     {
       "@id": "FeedIngredientV1:ProductNumber",
-      "cesmii:browseName": "ProductNumber",
+      "cesmii:fieldName": "ProductNumber",
       "cesmii:dataType": {
         "@id": "opc:Int64",
         "opc:nodeId": "i=8"
@@ -65,7 +70,7 @@
     },
     {
       "@id": "FeedIngredientV1:ProductName",
-      "cesmii:browseName": "ProductName",
+      "cesmii:fieldName": "ProductName",
       "cesmii:dataType": {
         "@id": "opc:String",
         "opc:nodeId": "i=12"
@@ -74,7 +79,7 @@
     },
     {
       "@id": "FeedIngredientV1:LotNumber",
-      "cesmii:browseName": "LotNumber",
+      "cesmii:fieldName": "LotNumber",
       "cesmii:dataType": {
         "@id": "opc:String",
         "opc:nodeId": "i=12"
@@ -83,7 +88,7 @@
     },
     {
       "@id": "FeedIngredientV1:UnitOfMeasure",
-      "cesmii:browseName": "UnitOfMeasure",
+      "cesmii:fieldName": "UnitOfMeasure",
       "cesmii:dataType": {
         "@id": "opc:String",
         "opc:nodeId": "i=12"
@@ -92,7 +97,7 @@
     },
     {
       "@id": "FeedIngredientV1:Quantity",
-      "cesmii:browseName": "Quantity",
+      "cesmii:fieldName": "Quantity",
       "cesmii:dataType": {
         "@id": "opc:Double",
         "opc:nodeId": "i=11"
@@ -101,7 +106,7 @@
     },
     {
       "@id": "FeedIngredientV1:WeightUnitOfMeasure",
-      "cesmii:browseName": "WeightUnitOfMeasure",
+      "cesmii:fieldName": "WeightUnitOfMeasure",
       "cesmii:dataType": {
         "@id": "opc:String",
         "opc:nodeId": "i=12"
@@ -110,7 +115,7 @@
     },
     {
       "@id": "FeedIngredientV1:Weight",
-      "cesmii:browseName": "Weight",
+      "cesmii:fieldName": "Weight",
       "cesmii:dataType": {
         "@id": "opc:Double",
         "opc:nodeId": "i=11"

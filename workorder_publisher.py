@@ -3,11 +3,11 @@
 CESMII Work Order Publisher Demo Application
 
 This application demonstrates the use of CESMII Smart Manufacturing (SM) Profiles
-by publishing work orders to an MQTT broker (UNS) every hour. The work orders
-conform to the WorkOrderV1 SM Profile defined in JSON-LD format.
+by publishing work orders to an MQTT broker (UNS). The work orders conform to the
+WorkOrderV1 SM Profile using CESMII's $namespace format for profile identification.
 
 Author: Demo Application
-Version: 1.0.0
+Version: 1.1.0
 """
 
 import json
@@ -23,13 +23,11 @@ import pytz
 
 
 # =============================================================================
-# CESMII SM Profile References
+# CESMII SM Profile Namespaces
 # =============================================================================
 
-WORKORDER_PROFILE_URL = "https://www.github.com/eukodyne/cesmii/smprofiles/WorkOrderV1.jsonld"
-FEEDINGREDIENT_PROFILE_URL = "https://www.github.com/eukodyne/cesmii/smprofiles/FeedIngredientV1.jsonld"
-OPC_UA_NAMESPACE = "http://opcfoundation.org/UA/"
-CESMII_NAMESPACE = "https://profiles.cesmii.org/"
+WORKORDER_NAMESPACE = "https://www.github.com/eukodyne/cesmii/smprofiles/WorkOrderV1"
+FEEDINGREDIENT_NAMESPACE = "https://www.github.com/eukodyne/cesmii/smprofiles/FeedIngredientV1"
 
 
 # =============================================================================
@@ -181,7 +179,7 @@ class WorkOrderGenerator:
         Generate a new work order with all required fields.
 
         Returns a dictionary conforming to the WorkOrderV1 SM Profile with
-        JSON-LD @context reference for profile identification.
+        $namespace reference for profile identification (CESMII standard format).
         """
         # Select random product
         tmp_product = random.choice(self.demo_products)
@@ -206,7 +204,7 @@ class WorkOrderGenerator:
             ingredient_weight = tmp_weight * ingredient.mix_proportion
 
             feed_ingredients.append({
-                "@type": "FeedIngredientV1",
+                "$namespace": FEEDINGREDIENT_NAMESPACE,
                 "ProductID": ingredient.product_id,
                 "ProductNumber": ingredient.product_number,
                 "ProductName": ingredient.product_name,
@@ -217,21 +215,10 @@ class WorkOrderGenerator:
                 "Weight": ingredient_weight
             })
 
-        # Build work order with JSON-LD context
+        # Build work order with CESMII $namespace format
         work_order = {
-            "@context": {
-                "@version": 1.1,
-                "cesmii": CESMII_NAMESPACE,
-                "opc": OPC_UA_NAMESPACE,
-                "WorkOrderV1": "https://www.github.com/eukodyne/cesmii/smprofiles/WorkOrderV1#",
-                "FeedIngredientV1": "https://www.github.com/eukodyne/cesmii/smprofiles/FeedIngredientV1#",
-                "profileDefinition": {
-                    "@id": "cesmii:profileDefinition",
-                    "@type": "@id"
-                }
-            },
-            "@type": "WorkOrderV1",
-            "profileDefinition": WORKORDER_PROFILE_URL,
+            "$namespace": WORKORDER_NAMESPACE,
+            "$comment": "Work order conforming to WorkOrderV1 SM Profile",
             "WorkOrderID": str(uuid.uuid4()),
             "WorkOrderNumber": self.work_order_counter,
             "TimeZone": self._get_timezone_data(),
@@ -401,8 +388,8 @@ def main() -> None:
     print("This application demonstrates CESMII Smart Manufacturing Profiles")
     print("by publishing work orders to an MQTT broker every 10 seconds.")
     print()
-    print(f"Work Order Profile: {WORKORDER_PROFILE_URL}")
-    print(f"Feed Ingredient Profile: {FEEDINGREDIENT_PROFILE_URL}")
+    print(f"Work Order Namespace: {WORKORDER_NAMESPACE}")
+    print(f"Feed Ingredient Namespace: {FEEDINGREDIENT_NAMESPACE}")
     print()
 
     # Load configuration

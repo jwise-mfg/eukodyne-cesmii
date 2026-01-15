@@ -73,21 +73,23 @@
   },
   "@id": "https://www.github.com/eukodyne/cesmii/smprofiles/WorkOrderV1",
   "@type": "cesmii:SMProfile",
-  "cesmii:profileName": "WorkOrderV1",
-  "cesmii:profileVersion": "1.0.0",
+  "cesmii:profileName": "WorkOrderType",
+  "cesmii:profileVersion": "1.1.0",
   "cesmii:namespace": "https://www.github.com/eukodyne/cesmii/smprofiles/",
   "cesmii:description": "CESMII Smart Manufacturing Profile for Work Orders. Defines the structure for manufacturing work orders including scheduling, product information, quantities, and associated feed ingredients.",
   "cesmii:baseType": "opc:BaseObjectType",
-  "cesmii:references": [
+  "cesmii:nodeId": "ns=1;i=1001",
+  "cesmii:requiredProfiles": [
     {
       "@id": "https://www.github.com/eukodyne/cesmii/smprofiles/FeedIngredientV1",
-      "cesmii:referenceType": "cesmii:HasComponent"
+      "cesmii:version": "1.1.0"
     }
   ],
   "cesmii:attributes": [
     {
       "@id": "WorkOrderV1:WorkOrderID",
       "cesmii:browseName": "WorkOrderID",
+      "cesmii:nodeId": "ns=1;i=6001",
       "cesmii:dataType": {
         "@id": "opc:String",
         "opc:nodeId": "i=12"
@@ -97,6 +99,7 @@
     {
       "@id": "WorkOrderV1:WorkOrderNumber",
       "cesmii:browseName": "WorkOrderNumber",
+      "cesmii:nodeId": "ns=1;i=6002",
       "cesmii:dataType": {
         "@id": "opc:Int32",
         "opc:nodeId": "i=6"
@@ -106,6 +109,7 @@
     {
       "@id": "WorkOrderV1:TimeZone",
       "cesmii:browseName": "TimeZone",
+      "cesmii:nodeId": "ns=1;i=6003",
       "cesmii:dataType": {
         "@id": "opc:TimeZoneDataType",
         "opc:nodeId": "i=8912",
@@ -128,6 +132,7 @@
     {
       "@id": "WorkOrderV1:StartTimeLocal",
       "cesmii:browseName": "StartTimeLocal",
+      "cesmii:nodeId": "ns=1;i=6004",
       "cesmii:dataType": {
         "@id": "opc:DateTime",
         "opc:nodeId": "i=13"
@@ -137,6 +142,7 @@
     {
       "@id": "WorkOrderV1:StartTimeUTC",
       "cesmii:browseName": "StartTimeUTC",
+      "cesmii:nodeId": "ns=1;i=6005",
       "cesmii:dataType": {
         "@id": "opc:UtcTime",
         "opc:nodeId": "i=294"
@@ -146,6 +152,7 @@
     {
       "@id": "WorkOrderV1:EndTimeLocal",
       "cesmii:browseName": "EndTimeLocal",
+      "cesmii:nodeId": "ns=1;i=6006",
       "cesmii:dataType": {
         "@id": "opc:DateTime",
         "opc:nodeId": "i=13"
@@ -155,6 +162,7 @@
     {
       "@id": "WorkOrderV1:EndTimeUTC",
       "cesmii:browseName": "EndTimeUTC",
+      "cesmii:nodeId": "ns=1;i=6007",
       "cesmii:dataType": {
         "@id": "opc:UtcTime",
         "opc:nodeId": "i=294"
@@ -164,6 +172,7 @@
     {
       "@id": "WorkOrderV1:ProductID",
       "cesmii:browseName": "ProductID",
+      "cesmii:nodeId": "ns=1;i=6008",
       "cesmii:dataType": {
         "@id": "opc:String",
         "opc:nodeId": "i=12"
@@ -173,6 +182,7 @@
     {
       "@id": "WorkOrderV1:ProductNumber",
       "cesmii:browseName": "ProductNumber",
+      "cesmii:nodeId": "ns=1;i=6009",
       "cesmii:dataType": {
         "@id": "opc:Int64",
         "opc:nodeId": "i=8"
@@ -182,6 +192,7 @@
     {
       "@id": "WorkOrderV1:ProductName",
       "cesmii:browseName": "ProductName",
+      "cesmii:nodeId": "ns=1;i=6010",
       "cesmii:dataType": {
         "@id": "opc:String",
         "opc:nodeId": "i=12"
@@ -191,6 +202,7 @@
     {
       "@id": "WorkOrderV1:LotNumber",
       "cesmii:browseName": "LotNumber",
+      "cesmii:nodeId": "ns=1;i=6011",
       "cesmii:dataType": {
         "@id": "opc:String",
         "opc:nodeId": "i=12"
@@ -200,6 +212,7 @@
     {
       "@id": "WorkOrderV1:UnitOfMeasure",
       "cesmii:browseName": "UnitOfMeasure",
+      "cesmii:nodeId": "ns=1;i=6012",
       "cesmii:dataType": {
         "@id": "opc:String",
         "opc:nodeId": "i=12"
@@ -209,6 +222,7 @@
     {
       "@id": "WorkOrderV1:Quantity",
       "cesmii:browseName": "Quantity",
+      "cesmii:nodeId": "ns=1;i=6013",
       "cesmii:dataType": {
         "@id": "opc:Double",
         "opc:nodeId": "i=11"
@@ -218,6 +232,7 @@
     {
       "@id": "WorkOrderV1:WeightUnitOfMeasure",
       "cesmii:browseName": "WeightUnitOfMeasure",
+      "cesmii:nodeId": "ns=1;i=6014",
       "cesmii:dataType": {
         "@id": "opc:String",
         "opc:nodeId": "i=12"
@@ -227,6 +242,7 @@
     {
       "@id": "WorkOrderV1:Weight",
       "cesmii:browseName": "Weight",
+      "cesmii:nodeId": "ns=1;i=6015",
       "cesmii:dataType": {
         "@id": "opc:Double",
         "opc:nodeId": "i=11"
@@ -236,13 +252,16 @@
     {
       "@id": "WorkOrderV1:FeedIngredients",
       "cesmii:browseName": "FeedIngredients",
+      "cesmii:nodeId": "ns=1;i=6016",
       "cesmii:dataType": {
-        "@id": "FeedIngredientV1:FeedIngredientV1",
-        "cesmii:profileReference": "https://www.github.com/eukodyne/cesmii/smprofiles/FeedIngredientV1.jsonld"
+        "@id": "FeedIngredientV1:FeedIngredientDataType",
+        "cesmii:profileReference": "https://www.github.com/eukodyne/cesmii/smprofiles/FeedIngredientV1.jsonld",
+        "cesmii:nodeId": "ns=2;i=3001"
       },
+      "cesmii:valueRank": 1,
+      "cesmii:arrayDimensions": [0],
       "cesmii:isArray": true,
-      "cesmii:arrayBounds": "unbounded",
-      "cesmii:description": "List of feed ingredients required for the work order"
+      "cesmii:description": "Array of feed ingredients required for this work order. Each element is of type FeedIngredientDataType."
     }
   ]
 }

@@ -210,3 +210,4 @@ __marimo__/
 initial_prompt.txt
 .claude/
 claude.md
+config.json
