@@ -209,3 +209,4 @@ __marimo__/
 # Project specific
 initial_prompt.txt
 .claude/
+claude.md
