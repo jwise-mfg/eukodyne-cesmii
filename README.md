@@ -227,12 +227,20 @@ The application can be deployed as a Docker container on a Linux server.
    ```bash
    docker run -d --name workorder-publisher \
      --restart unless-stopped \
+     --log-driver json-file \
+     --log-opt max-size=10m \
+     --log-opt max-file=3 \
      -v /opt/cesmii/config.json:/app/config.json:ro \
      workorder-publisher
    ```
 
-   The `-v` flag mounts your local config file into the container (`:ro` = read-only).
-   The `--restart unless-stopped` ensures the container restarts automatically after server reboots.
+   | Flag | Description |
+   |------|-------------|
+   | `-v` | Mounts your local config file into the container (`:ro` = read-only) |
+   | `--restart unless-stopped` | Container restarts automatically after server reboots |
+   | `--log-driver json-file` | Uses Docker's JSON file logging driver |
+   | `--log-opt max-size=10m` | Rotates logs when they reach 10MB |
+   | `--log-opt max-file=3` | Keeps up to 3 rotated log files |
 
 ### Container Management
 
@@ -255,6 +263,9 @@ docker build -t workorder-publisher .
 docker stop workorder-publisher && docker rm workorder-publisher
 docker run -d --name workorder-publisher \
   --restart unless-stopped \
+  --log-driver json-file \
+  --log-opt max-size=10m \
+  --log-opt max-file=3 \
   -v /opt/cesmii/config.json:/app/config.json:ro \
   workorder-publisher
 ```
