@@ -1,0 +1,9 @@
+{
+  "mqtt-endpoint": {
+    "host": "",
+    "port": 1883,
+    "username": "",
+    "password": ""
+  },
+  "mqtt-publish-topic": "Enterprise B/your-username/cesmii/WorkOrder"
+}
