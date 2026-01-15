@@ -1,34 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<UANodeSet xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd"
-           xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd"
-           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-
+<UANodeSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" LastModified="2026-01-15T05:00:32.7675462Z" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
   <NamespaceUris>
     <Uri>https://www.github.com/eukodyne/cesmii/smprofiles/FeedIngredientV1</Uri>
   </NamespaceUris>
-
   <Models>
     <Model ModelUri="https://www.github.com/eukodyne/cesmii/smprofiles/FeedIngredientV1" Version="1.1.0" PublicationDate="2026-01-14T00:00:00Z">
-      <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.05.03" PublicationDate="2023-12-15T00:00:00Z"/>
+      <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.05.04" PublicationDate="2025-01-08T00:00:00Z" />
     </Model>
   </Models>
-
   <Aliases>
-    <Alias Alias="Boolean">i=1</Alias>
-    <Alias Alias="Int16">i=4</Alias>
-    <Alias Alias="Int32">i=6</Alias>
     <Alias Alias="Int64">i=8</Alias>
     <Alias Alias="Double">i=11</Alias>
     <Alias Alias="String">i=12</Alias>
-    <Alias Alias="DateTime">i=13</Alias>
-    <Alias Alias="HasSubtype">i=45</Alias>
-    <Alias Alias="HasEncoding">i=38</Alias>
-    <Alias Alias="HasDescription">i=39</Alias>
     <Alias Alias="Structure">i=22</Alias>
+    <Alias Alias="HasSubtype">i=45</Alias>
   </Aliases>
-
-  <!-- FeedIngredientDataType - Structured DataType Definition -->
   <UADataType NodeId="ns=1;i=3001" BrowseName="1:FeedIngredientDataType">
     <DisplayName>FeedIngredientDataType</DisplayName>
     <Description>CESMII Smart Manufacturing Profile for Feed Ingredients used in manufacturing work orders. Defines the structure for ingredient materials including product identification, quantities, and weight measurements.</Description>
@@ -36,57 +22,30 @@
       <Reference ReferenceType="HasSubtype" IsForward="false">Structure</Reference>
     </References>
     <Definition Name="1:FeedIngredientDataType">
-      <Field Name="ProductID" DataType="i=12">
+      <Field Name="ProductID" DataType="String">
         <Description>Unique identifier for the feed ingredient product</Description>
       </Field>
-      <Field Name="ProductNumber" DataType="i=8">
+      <Field Name="ProductNumber" DataType="Int64">
         <Description>Numeric product number for the feed ingredient</Description>
       </Field>
-      <Field Name="ProductName" DataType="i=12">
+      <Field Name="ProductName" DataType="String">
         <Description>Human-readable name of the feed ingredient product</Description>
       </Field>
-      <Field Name="LotNumber" DataType="i=12">
+      <Field Name="LotNumber" DataType="String">
         <Description>Lot number for traceability of the feed ingredient batch</Description>
       </Field>
-      <Field Name="UnitOfMeasure" DataType="i=12">
+      <Field Name="UnitOfMeasure" DataType="String">
         <Description>Unit of measure for the quantity (e.g., CS for cases)</Description>
       </Field>
-      <Field Name="Quantity" DataType="i=11">
+      <Field Name="Quantity" DataType="Double">
         <Description>Quantity of the feed ingredient in the specified unit of measure</Description>
       </Field>
-      <Field Name="WeightUnitOfMeasure" DataType="i=12">
+      <Field Name="WeightUnitOfMeasure" DataType="String">
         <Description>Unit of measure for weight (e.g., lb for pounds)</Description>
       </Field>
-      <Field Name="Weight" DataType="i=11">
+      <Field Name="Weight" DataType="Double">
         <Description>Weight of the feed ingredient in the specified weight unit</Description>
       </Field>
     </Definition>
   </UADataType>
-
-  <!-- Default Binary Encoding -->
-  <UAObject NodeId="ns=1;i=5001" BrowseName="Default Binary" SymbolicName="DefaultBinary">
-    <DisplayName>Default Binary</DisplayName>
-    <References>
-      <Reference ReferenceType="HasEncoding" IsForward="false">ns=1;i=3001</Reference>
-      <Reference ReferenceType="HasDescription">ns=1;i=6001</Reference>
-    </References>
-  </UAObject>
-
-  <!-- Default XML Encoding -->
-  <UAObject NodeId="ns=1;i=5002" BrowseName="Default XML" SymbolicName="DefaultXml">
-    <DisplayName>Default XML</DisplayName>
-    <References>
-      <Reference ReferenceType="HasEncoding" IsForward="false">ns=1;i=3001</Reference>
-      <Reference ReferenceType="HasDescription">ns=1;i=6002</Reference>
-    </References>
-  </UAObject>
-
-  <!-- Default JSON Encoding -->
-  <UAObject NodeId="ns=1;i=5003" BrowseName="Default JSON" SymbolicName="DefaultJson">
-    <DisplayName>Default JSON</DisplayName>
-    <References>
-      <Reference ReferenceType="HasEncoding" IsForward="false">ns=1;i=3001</Reference>
-    </References>
-  </UAObject>
-
 </UANodeSet>
